@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# Scheduling de discos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simulador de administración de discos para Sistemas Operativos
 
-Currently, two official plugins are available:
+# Estructura del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aquí tienes una vista general de la organización de las carpetas y archivos clave del proyecto.
 
-## React Compiler
+```
+.
+├── /public/
+│   └── (Archivos públicos, ej: index.html en dev, favicons)
+├── /src/
+│   ├── /assets/
+│   ├── /components/
+│   │   └── /layout/
+│   ├── /pages/
+│   └── main.tsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+└── vite.config.ts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Descripción de Archivos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* **/src/**: Directorio principal del código fuente de la aplicación.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  * **/assets/**: Archivos estáticos como imágenes, fuentes, etc.
+
+  * **/components/**: Componentes de React reutilizables (botones, inputs, etc.).
+
+  * **/pages/**: Componentes que representan las páginas o vistas principales.
+
+  * **main.tsx**: Punto de entrada de la aplicación React (renderiza `<App />`).
+
+* **/public/**: Archivos estáticos que no se procesan por Vite y se copian tal cual.
+
+* **.gitignore**: Especifica qué archivos y carpetas debe ignorar Git.
+
+* **eslint.config.js**: Configuración del linter (ESLint).
+
+* **index.html**: Plantilla HTML principal de la aplicación.
+
+* **package.json**: Define las dependencias y scripts del proyecto.
+
+* **package-lock.json**: Registra las versiones exactas de las dependencias.
+
+* **tsconfig.json**: Configuración del compilador de TypeScript.
+
+* **vite.config.ts**: Configuración de Vite (servidor de desarrollo, build, plugins).
+
+
+# Iniciar el servidor de desarrollo
+npm run dev
+
+# Iniciar la compilación para producción
+npm build

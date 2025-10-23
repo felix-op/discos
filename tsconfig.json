@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		// --- Configuración del Proyecto (Vite + React) ---
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"jsx": "react-jsx",
+		"moduleResolution": "bundler",
+		"isolatedModules": true,
+		"noEmit": true, // Vite se encarga de transpilar, TS es solo para chequeo
+
+		// --- Configuración Estricta (Tu Petición Principal) ---
+		"strict": true, // Activa TODAS las comprobaciones estrictas
+		"allowJs": false, // No permitir archivos JS, solo TS/TSX
+		"skipLibCheck": true, // No chequear tipos en node_modules
+		"forceConsistentCasingInFileNames": true, // Evita problemas entre OS
+
+		// --- Reglas "Nivel Linter" (Aún más estricto) ---
+		"noUnusedLocals": true, // Reporta variables locales no usadas
+		"noUnusedParameters": true, // Reporta parámetros no usados
+		"noFallthroughCasesInSwitch": true, // Evita "fall-through" en switch
+		"noImplicitReturns": true, // Asegura que todas las ramas de una función retornen un valor
+		"noUncheckedIndexedAccess": true, // Trata el acceso a arrays/objetos (arr[i]) como T | undefined
+		"exactOptionalPropertyTypes": true, // No permite asignar 'undefined' explícitamente a propiedades opcionales
+
+		// --- Rutas y Módulos ---
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"baseUrl": ".",
+		"paths": {
+			//"src/*": ["src/*"]
+			"@layout/*": ["src/components/layout/*"],
+			"@components/*": ["src/components/*"],
+			"@pages/*": ["src/pages/*"],
+			"@assets/*": ["src/assets/*"]
+		}
+	},
+	"include": ["src"], // Solo chequear la carpeta 'src'
+}

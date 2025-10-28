@@ -5,15 +5,19 @@ import { RouterProvider } from "react-router/dom";
 import App from "@layout/App";
 import ConfigPage from "@pages/ConfigPage";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-	Component: App,
-	children: [
-		{ index: true, Component: ConfigPage }
-	]
-  },
-]);
+const rutas = [
+	{
+		path: "/",
+		Component: App,
+		children: [
+			{ index: true, path: "config", Component: ConfigPage },
+			{ path: "pedidos", Component: ConfigPage },
+			{ path: "resultados", Component: ConfigPage },
+		]
+	},
+]
+
+const router = createBrowserRouter(rutas);
 
 const root = document.getElementById("root");
 
